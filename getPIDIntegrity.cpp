@@ -14,7 +14,8 @@ void ShowProcessIntegrityLevel(DWORD procId) {
     DWORD dwIntegrityLevel;
     bool bResult;
 
-    hProcess = OpenProcess(PROCESS_QUERY_INFORMATION, FALSE, procId);
+    //hProcess = OpenProcess(PROCESS_QUERY_INFORMATION, FALSE, procId);
+    hProcess = OpenProcess(PROCESS_QUERY_LIMITED_INFORMATION, FALSE, procId);
     if (hProcess == NULL) {
         DWORD er = GetLastError();
         printf("\nError: %d", er);
